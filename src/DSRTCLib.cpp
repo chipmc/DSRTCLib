@@ -279,18 +279,23 @@ unsigned long DSRTCLib::date_to_epoch_seconds(unsigned int year, byte month, byt
 // NB: The multiplication-by-constants below is intentionally left expanded for readability; GCC is smart and will optimize them to single constants during compilation.
 
 
-  //         Whole year seconds                      Cumulative total of seconds contributed by elapsed leap year days
-  unsigned long sse = (((unsigned long)year)*365*24*60*60)   +   ((((unsigned long)year+3)>>2) + ((unsigned long)year%4==0 && (unsigned long)month>2))*24*60*60   +   \
-         ((unsigned long)monthdays[month-1] + (unsigned long)day-1) *24*60*60   +   ((unsigned long)hour*60*60)   +   ((unsigned long)minute*60)   + (unsigned long)second;
-         // Seconds in days since start of year                      hours                      minutes           sec
-  sse += 946684800; // correct for difference between DSRTCLib epoch and UNIX epoch
+  // Whole year seconds Cumulative total of seconds contributed by elapsed leap year days
+  unsigned long sse = (((unsigned long)year)*365*24*60*60)   +   
+    ((((unsigned long)year+3)>>2) + ((unsigned long)year%4==0 && (unsigned long)month>2))*24*60*60   +  
+    ((unsigned long)monthdays[month-1] + (unsigned long)day-1) *24*60*60   +   
+    ((unsigned long)hour*60*60)   +   ((unsigned long)minute*60)   + (unsigned long)second; 
+                                                                                                                // Seconds in days since start of year + hours + minutes + sec
+  sse += 946684800;                                                                                             // correct for difference between DSRTCLib epoch and UNIX epoch
   return sse;
 }
 
 
 unsigned long DSRTCLib::date_to_epoch_seconds()
 {
-     unsigned long asdf = date_to_epoch_seconds(int(bcd2bin(rtc_bcd[DSRTCLib_YR])), bcd2bin(rtc_bcd[DSRTCLib_MTH]), bcd2bin(rtc_bcd[DSRTCLib_DATE]), bcd2bin(rtc_bcd[DSRTCLib_HR]), bcd2bin(rtc_bcd[DSRTCLib_MIN]), bcd2bin(rtc_bcd[DSRTCLib_SEC]));
+     unsigned long asdf = date_to_epoch_seconds(int(bcd2bin(rtc_bcd[DSRTCLib_YR])), 
+        bcd2bin(rtc_bcd[DSRTCLib_MTH]), bcd2bin(rtc_bcd[DSRTCLib_DATE]), 
+        bcd2bin(rtc_bcd[DSRTCLib_HR]), bcd2bin(rtc_bcd[DSRTCLib_MIN]), 
+        bcd2bin(rtc_bcd[DSRTCLib_SEC]));
      return asdf;
 }
 
