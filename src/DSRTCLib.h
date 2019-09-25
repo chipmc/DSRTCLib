@@ -25,40 +25,40 @@
 
 #define DSRTCLib_BASE_YR        2000
 
-#define DSRTCLib_CTRL_ID	B1101000
+#define DSRTCLib_CTRL_ID	0b1101000
 
  // Define register bit masks
-#define DSRTCLib_CLOCKHALT	B10000000
+#define DSRTCLib_CLOCKHALT	0b10000000
 
-#define DSRTCLib_LO_BCD		B00001111
-#define DSRTCLib_HI_BCD		B11110000
+#define DSRTCLib_LO_BCD		0b00001111
+#define DSRTCLib_HI_BCD		0b11110000
 
-#define DSRTCLib_HI_SEC		B01110000
-#define DSRTCLib_HI_MIN		B01110000
-#define DSRTCLib_HI_HR		B00110000
-#define DSRTCLib_LO_DOW		B00000111
-#define DSRTCLib_HI_DATE	B00110000
-#define DSRTCLib_HI_MTH		B00110000
-#define DSRTCLib_HI_YR		B11110000
+#define DSRTCLib_HI_SEC		0b01110000
+#define DSRTCLib_HI_MIN		0b01110000
+#define DSRTCLib_HI_HR		0b00110000
+#define DSRTCLib_LO_DOW		0b00000111
+#define DSRTCLib_HI_DATE	0b00110000
+#define DSRTCLib_HI_MTH		0b00110000
+#define DSRTCLib_HI_YR		0b11110000
 
 #define DSRTCLib_ARLM1		0x07
-#define DSRTCLib_ARLM1_LO_SEC	B00001111
-#define DSRTCLib_ARLM1_HI_SEC	B01110000
-#define DSRTCLib_ARLM1_LO_MIN	B01110000
-#define DSRTCLib_ARLM1_HI_MIN	B00001111
+#define DSRTCLib_ARLM1_LO_SEC	0b00001111
+#define DSRTCLib_ARLM1_HI_SEC	0b01110000
+#define DSRTCLib_ARLM1_LO_MIN	0b01110000
+#define DSRTCLib_ARLM1_HI_MIN	0b00001111
 
 #define DSRTCLib_SP		0x0E
-#define	DSRTCLib_SP_EOSC	B10000000
-#define	DSRTCLib_SP_RS2		B00010000
-#define	DSRTCLib_SP_RS1		B00001000
-#define	DSRTCLib_SP_INTCN	B00000100
-#define	DSRTCLib_SP_A2IE	B00000010
-#define	DSRTCLib_SP_A1IE	B00000001
+#define	DSRTCLib_SP_EOSC	0b10000000
+#define	DSRTCLib_SP_RS2		0b00010000
+#define	DSRTCLib_SP_RS1		0b00001000
+#define	DSRTCLib_SP_INTCN	0b00000100
+#define	DSRTCLib_SP_A2IE	0b00000010
+#define	DSRTCLib_SP_A1IE	0b00000001
 
 #define DSRTCLib_STATUS		0x0F
-#define DSRTCLib_STATUS_OSF	B10000000
-#define DSRTCLib_STATUS_A2F	B00000010
-#define DSRTCLib_STATUS_A1F	B00000001
+#define DSRTCLib_STATUS_OSF	0b10000000
+#define DSRTCLib_STATUS_A2F	0b00000010
+#define DSRTCLib_STATUS_A1F	0b00000001
 
 /* Definitions for alarm repeat */
 /* The private variable alarm_repeat holds the user's alarm repeat preference. However, the DS1337 & DS1339 encode these in the topmost bit(s) of the 4 alarm registers. */
@@ -70,12 +70,12 @@
       [x   x   x   A1M4   DY/DT   A1M3   A1M2   A1M1]
 */
 
-#define EVERY_SECOND            B00010111
-#define EVERY_MINUTE            B00010110
-#define EVERY_HOUR              B00010100
-#define EVERY_DAY               B00010000
-#define EVERY_WEEK              B00001000
-#define EVERY_MONTH             B00000000
+#define EVERY_SECOND            0b00010111
+#define EVERY_MINUTE            0b00010110
+#define EVERY_HOUR              0b00010100
+#define EVERY_DAY               0b00010000
+#define EVERY_WEEK              0b00001000
+#define EVERY_MONTH             0b00000000
 
 
 // library interface description : base class
